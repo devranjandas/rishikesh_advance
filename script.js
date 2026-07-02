@@ -31,6 +31,15 @@ document.querySelectorAll('.timeline-item, .course-card, .info-card, .packing-co
   observer.observe(el);
 });
 
+// Poster lightbox
+const posterImg = document.getElementById('posterImg');
+const lightbox = document.getElementById('lightbox');
+const lightboxClose = document.getElementById('lightboxClose');
+posterImg.addEventListener('click', () => lightbox.classList.add('open'));
+lightboxClose.addEventListener('click', () => lightbox.classList.remove('open'));
+lightbox.addEventListener('click', (e) => { if (e.target === lightbox) lightbox.classList.remove('open'); });
+document.addEventListener('keydown', (e) => { if (e.key === 'Escape') lightbox.classList.remove('open'); });
+
 // Register form — Formspree integration
 const form = document.getElementById('registerForm');
 const formSuccess = document.getElementById('formSuccess');
