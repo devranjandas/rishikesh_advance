@@ -31,12 +31,36 @@ document.querySelectorAll('.timeline-item, .course-card, .info-card, .packing-co
   observer.observe(el);
 });
 
-// Register form (demo — no backend)
+// Register form — Formspree integration
 const form = document.getElementById('registerForm');
 const formSuccess = document.getElementById('formSuccess');
-form.addEventListener('submit', (e) => {
+const submitBtn = form.querySelector('button[type="submit"]');
+
+form.addEventListener('submit', async (e) => {
   e.preventDefault();
-  form.style.display = 'none';
-  formSuccess.style.display = 'block';
-  window.scrollTo({ top: document.getElementById('register').offsetTop, behavior: 'smooth' });
+  submitBtn.disabled = true;
+  submitBtn.textContent = 'Submitting…';
+
+  try {
+    const res = await fetch(form.action, {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { Accept: 'application/json' }
+    });
+
+    if (res.ok) {
+      form.style.display = 'none';
+      formSuccess.style.display = 'block';
+    } else {
+      const data = await res.json();
+      const msg = data.errors?.map(e => e.message).join(', ') || 'Submission failed. Please try again.';
+      alert(msg);
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Submit Registration Interest';
+    }
+  } catch {
+    alert('Network error. Please check your connection and try again.');
+    submitBtn.disabled = false;
+    submitBtn.textContent = 'Submit Registration Interest';
+  }
 });
