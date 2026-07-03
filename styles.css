@@ -528,9 +528,10 @@ body {
 }
 .contact-cards {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   gap: 24px;
   margin-bottom: 56px;
+  max-width: 420px;
 }
 .contact-card {
   background: rgba(255,255,255,0.1);
@@ -655,6 +656,13 @@ body {
   text-align: center;
   font-size: 0.88rem;
 }
+
+/* ---- NAV WHATSAPP BUTTON ---- */
+.btn-nav-wa {
+  background: #25d366 !important;
+  color: #fff !important;
+}
+.btn-nav-wa:hover { background: #1dba57 !important; }
 
 /* ---- POSTER ---- */
 .section-poster { background: var(--cream); text-align: center; }
