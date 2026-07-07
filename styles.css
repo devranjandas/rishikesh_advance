@@ -505,6 +505,57 @@ body {
   background: var(--cream);
 }
 
+/* ---- ACCOMMODATION ---- */
+.accommodation-wrap {
+  margin-top: 48px;
+  padding-top: 40px;
+  border-top: 1px solid var(--border);
+}
+.accom-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.4rem;
+  color: var(--dark);
+  margin-bottom: 20px;
+}
+.room-table {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  margin-bottom: 24px;
+}
+.room-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 20px;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.95rem;
+}
+.room-row:last-child { border-bottom: none; }
+.room-header {
+  background: var(--dark);
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.room-row:not(.room-header):nth-child(even) { background: var(--cream); }
+.room-price {
+  font-weight: 700;
+  color: var(--saffron-dark);
+  font-size: 1rem;
+}
+.accom-policy {
+  background: rgba(45,106,79,0.07);
+  border: 1px solid rgba(45,106,79,0.2);
+  border-left: 4px solid var(--green);
+  border-radius: var(--radius);
+  padding: 18px 22px;
+}
+.accom-policy strong { display: block; margin-bottom: 8px; color: var(--green); }
+.accom-policy p { font-size: 0.9rem; color: var(--text-muted); margin: 0; }
+
 /* ---- PACKING ---- */
 .packing-grid {
   display: grid;
